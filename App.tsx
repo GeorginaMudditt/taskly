@@ -1,34 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { theme } from "./theme";
+import { ShoppingListItem } from "./components/ShoppingListItem";
 
 export default function App() {
-  const handleRemove = () => {
-    Alert.alert(
-      "Are you sure you want to remove this item?",
-      "It will be removed permanently.",
-      [
-        {
-          text: "Yes, remove it",
-          onPress: () => console.log("Item removed"),
-        },
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel pressed"),
-        },
-      ]
-    );
-  };
-
   return (
     <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        <Text style={styles.itemText}>Chocolate</Text>
-        <TouchableOpacity style={styles.button} onPress={handleRemove}>
-          <Text style={styles.buttonText}>Remove</Text>
-        </TouchableOpacity>
-        <StatusBar style="auto" />
-      </View>
+      <ShoppingListItem name="Chocolate" />
+      <ShoppingListItem name="Cheese" />
+      <ShoppingListItem name="Bread" />
     </View>
   );
 }
